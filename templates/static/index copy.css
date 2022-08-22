@@ -1,0 +1,41 @@
+.btn-press-down {
+    display: inline-block;
+    background-color: rgb(55, 71, 79);
+    padding: 5px 25px 10px 25px;
+    margin:10px 5px 20px 5px;
+    color: #fff;
+    height:30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px rgb(37, 49, 55);
+}
+.btn-press-down:active{
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+}
+#keyword{
+    border:0;
+    padding:10px 0 10px 12px;
+    font-size:1.3em;
+    font-family:Arial, sans-serif;
+    color:#aaa;
+    border:solid 1px #ccc;
+    height:30px;
+    width:200px;
+}
+
+#page{
+    border:0;
+    padding:12px;
+    font-size:1.3em;
+    font-family:Arial, sans-serif;
+    color:#aaa;
+    border:solid 1px #ccc;
+    margin:0 0 5px;
+    width:50px;
+    height: 5px
+}
+
+

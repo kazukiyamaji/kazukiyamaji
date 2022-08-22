@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>生成機</title>
+        <link rel="stylesheet" href="{{ request.url }}templates/static/index.css">
+    </head>
+    <body>
+        <h1>提案システム</h1>
+        <h3>好きなキーワードを入力してください</h3>
+        
+        <form action="{{ request.url }}display1/" method="POST" id="generator" v-on:submit.prevent="post">
+            <input type="text" name="keyword" id="keyword" v-model="keyword">
+            <button id="btn" class="btn-press-down">search</button>
+        </form>
+        <form action="{{ request.url }}get_picture1/" method="POST" id="get_picture">
+            <label for="page">ページ番号</label>
+            <input type="number" id="page" name="page"min="0" max="11" value="0">
+            <button id="btn1" disabled=true class="btn-press-down">指定したページで検索</button>
+        </form>
+        <table class="example2">
+            <tr>
+                <td><img id="load_image0" width="200" height="200" ></td>
+                <td><img id="load_image1" width="200" height="200" ></td>
+                <td><img id="load_image2" width="200" height="200" ></td>
+            </tr>
+            <tr>
+                <td><img id="load_image3" width="200" height="200" ></td>
+                <td><img id="load_image4" width="200" height="200" ></td>
+                <td><img id="load_image5" width="200" height="200" ></td>
+            </tr>
+            <tr>
+                <td><img id="load_image6" width="200" height="200" ></td>
+                <td><img id="load_image7" width="200" height="200" ></td>
+                <td><img id="load_image8" width="200" height="200" ></td>
+            </tr>
+        </table>
+        <form action="{{ request.url }}invert1/" method="POST" id="invert">
+            <input type="number" id="number1" readonly name="number2" >
+            <button id="btn2" disabled=true class="btn-press-down">Invert!</button>
+            <p id="notice" style="display:inline;"></p>
+        </form>
+        
+        <form action="{{ request.url }}cycle_generation1/" method="POST" id="select">
+            <input type="number" id="number2" readonly name="number3" >
+            <select name="example" id ="mode">
+                <option value=0>全て変更</option>
+                <option value=1>顔の構造のみ変更</option>
+                <option value=2>髪の毛や顔の色の変更</option>
+            </select>
+            <select id ="variation">
+                <option value=0>普通</option>
+                <option value=1>大胆</option>
+                <option value=2>もっと大胆</option>
+            </select>
+            <select id ="direction">
+                <option value=0>変化１</option>
+                <option value=1>変化２</option>
+                <option value=2>変化３</option>
+                <option value=3>変化４</option>
+                <option value=4>変化５</option>
+                <option value=5>変化６</option>
+                <option value=6>変化７</option>
+                <option value=7>変化８</option>
+                <option value=8>変化９</option>
+                <option value=9>変化１０</option>
+                <option value=10>変化１１</option>
+                <option value=11>変化１２</option>
+            </select>
+            <input type="checkbox" id="same" name="same" >
+            <label for="same">そのまま</label>
+            <button id="btn3" disabled=true class="btn-press-down">Select!</button>
+        </form>
+        <form action="{{ request.url }}download/" method="POST" id="download">
+            <button id="btn2" class="btn-press-down">download</button>
+        </form>
+        <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+        <script src="{{ request.url }}templates/static/index.js"></script>
+        
+        
+    </body>
+</html>

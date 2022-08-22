@@ -1,0 +1,34 @@
+version: "3"
+services:
+  web:
+    container_name: web
+    image: nginx:alpine
+    depends_on:
+      - app
+    ports:
+      - "10000:10000"
+    volumes:
+      - ./test_nginx:/etc/nginx/conf.d
+    networks:
+      - nginx_network
+  
+
+  app:
+    container_name: app
+    image: test_app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 10000
+    volumes:
+      - ./:/share
+    networks:
+      - nginx_network
+    command: >
+      sh -c "cd share &&
+        uvicorn main:app --reload --host 0.0.0.0 --port 10000 --proxy-headers" 
+
+networks:
+  nginx_network:
+    driver: bridge
